@@ -1,0 +1,307 @@
+---------------------------------------------------------------------------------------------------------------------------
+create database postgrado;
+
+create table admision(
+ID_Postulante int NOT NULL,
+ID_Especialidad varchar(30),
+Especialidad varchar(150),
+correo varchar(30),
+Costo int NOT NULL
+);
+ 
+
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('145543','Maestria','Maestría en Ciencias en Conservación y Gestión del Patrimonio Edificado (CGPE)',' joel@uni.pe',2700) ;
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('345043','Doctorado','Doctorado en Ingeniería Industrial', ' ',5500);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('445543','Maestria','MAESTRÍA EN CIENCIAS EN ENERGÍAS RENOVABLES Y EFICIENCIA ENERGÉTICA',' ',2200);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('345541','Educacion Ejecutiva',' ','aamaginel@uni.pe',500);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('745543','Doctorado','Doctorado en Ciencias con mención en Química','',7500);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('335543','Maestria','MAESTRÍA EN CIENCIAS EN MATEMÁTICA APLICADA','',1500);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('345503','Maestria','Especialidad Computación Científica','',1200);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('340043','Doctorado','Doctorado en Ciencias con mención en Matemática','',6200);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('305543','Diplomado','Doctorado en Ciencias con mención en Química','',5500);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('115543','Maestria','Maestría en Ciencias en Regeneración Urbana (RU) ','',2700);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('307543','Doctorado','MAESTRÍA EN CIENCIAS EN FÍSICA MÉDICA','',3500);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('885543','Doctorado','Doctorado en Ciencias con mención en Física','',6500);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('345555','Educacion Ejecutiva','DIRECCIÓN EN TRANSFORMACIÓN DIGITAL: PÚBLICA Y PRIVADA','',750);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('100543','Diplomado','BUSINESS INTELLIGENCE & BUSINESS ANALYTICS',' ',1500);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('222003','Maestria' ,'MAESTRÍA EN CIENCIAS EN ENERGÍA NUCLEAR','','2500);
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+create table postulante(
+ID_Postulante varchar(30) NOT NULL,
+ID_Especialidad varchar(30) NOT NULL,
+Nombre varchar(30) NOT NULL,
+Apellido varchar(30) NOT NULL,
+Email varchar(50) NOT NULL,
+Facultad varchar(30),
+Tipo_Postgrado varchar(30) NOT NULL
+);
+
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1234M','Maes123','Carlos Alberto',' Moran Baquijano','carlosalb34@yahoo.es','Ciencia','Maestria');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1235M','Maes123','Juan Carlos',' Paramonga Alvitrez','juan34@yahoo.es','Ing. Quimica','Maestria');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('4234D','Doct023','Carlos Juvenal',' Carrion  Zamora','juvencarlos@yahoo.com','Ing. electronica','Doctorado');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1234M','Maes123','Mario Alberto',' Tinoco Moran','tinoco_alb3@gmail.com','Ciencia','Maestria');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1134Di','Dipl230','Jesua Luis',' Moreno Baquijano','morenobbj@yahoo.es','Ciencia','Diplomado');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1334M','Maes123','Miguel Alberto',' Pariasca Ezcurra','ezcurisca1@yahoo.com','Ing. civil','Maestria');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('100EE','EduEj034','Raul Pedro',' Roman Zevallos','rrzzlls11@gmail.com','Educacion','Educacion Ejecutiva');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('2234D','Doct023','Rigoberto Jose','Panduro Moran ','rigobertojj_we4@uni.pe','Ciencia','Doctorado');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('4234M','Maes123','Miguel Carlos','Apaza Agueroo','miguelcarlosalb34@yahoo.es','Educacion','Maestria');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('4235M','Maes123','Ricarso Manuel',' Orbegozo Alva','rickyme@yahoo.com','Ing. Sistemas','Maestria');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('113Di','Dipl230','Anselmo Jesus',' Bustamante Sotomayor','Ansejesus_4@yahoo.es','Ciencia','Diplomado');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1234D','Doct023','Samuel Guillermo','Negrete Garcia','negretegg@gmail.com','Ing. Ambiental','Doctorado');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('5534M','Maes123','Luis Rosulo',' Anticuya Carpio','anticucu_55@yahoo.com','Ing. Quimica','Maestria');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('493Di','Dipl230','Oswaldo Celamir',' Yglesias Suarez','oswwsuazz@gmail.com','Ciencia','Diplomado');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1004M','Maes123','Fernando Joel',' Garcia Montenegro','garciammm_2@uni.pe','Ciencia','Maestria');
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+create table servicios(
+ID_Alumno varchar(30) NOT NULL,
+Biblioteca_Central varchar(30),
+Bolsa_Trabajo varchar(80),
+Tesis varchar(80)
+);
+
+insert into servicios (ID_Alumno, Biblioteca_Central, Bolsa_Trabajo, Tesis) values('1005501c','FC','Industrias Camones','La soba del cuy')
+insert into servicios (ID_Alumno, Biblioteca_Central, Bolsa_Trabajo, Tesis) values('2015501a','FIQT','Nuevo mundo','la fibra de la vicuña')
+insert into servicios (ID_Alumno, Biblioteca_Central, Bolsa_Trabajo, Tesis) values('2003501f','FIEE','El mundo de los transistores','Los circuitos  ligeros')
+insert into servicios (ID_Alumno, Biblioteca_Central, Bolsa_Trabajo, Tesis) values('2005401c','FIGMM','Empresa minera Yanacocha','El estudio de la roca')
+insert into servicios (ID_Alumno, Biblioteca_Central, Bolsa_Trabajo, Tesis) values('2007501f','FIEE','Empresa de tensometros ','Proteccion de alta tension')
+insert into servicios (ID_Alumno, Biblioteca_Central, Bolsa_Trabajo, Tesis) values('2008581c','FIIS','PENTHAMO SA','El estudio de la transformacion digital')
+insert into servicios (ID_Alumno, Biblioteca_Central, Bolsa_Trabajo, Tesis) values('2002701a','FC','Corporacion Educativa CELROS','la educacion Matematica')
+insert into servicios (ID_Alumno, Biblioteca_Central, Bolsa_Trabajo, Tesis) values('2008901c','FIEECS','El metropolitano','Los buses inteligentes')
+insert into servicios (ID_Alumno, Biblioteca_Central, Bolsa_Trabajo, Tesis) values('2008507f','FIM','Empresa de mantenimiento industrial'','la aplicacion energetica del gas natural')
+insert into servicios (ID_Alumno, Biblioteca_Central, Bolsa_Trabajo, Tesis) values('2005007b','FIIS','Empresa de proyectos','Proyecto de la mediana empresa')
+insert into servicios (ID_Alumno, Biblioteca_Central, Bolsa_Trabajo, Tesis) values('2004506c','FIP','Empresa de petroquimicos SA','El petroleo y el gas natural')
+insert into servicios (ID_Alumno, Biblioteca_Central, Bolsa_Trabajo, Tesis) values('2003056a','FIIS','Empresa de mantenimiento industrial','La organizacion del mantenimiento de una planta')
+insert into servicios (ID_Alumno, Biblioteca_Central, Bolsa_Trabajo, Tesis) values('2005432c','FC','Complejo educativo la luz','la educacion ludica')
+insert into servicios (ID_Alumno, Biblioteca_Central, Bolsa_Trabajo, Tesis) values('2001561f','FC','Empresa hidroelectrica del Mantaro','Riesgos de los fenomenos naturales')
+insert into servicios (ID_Alumno, Biblioteca_Central, Bolsa_Trabajo, Tesis) values('2078914c','FIQT','Quimica Zuisa','El tejido de punto');
+
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+create table maestria(
+ID_Maestria int NOT NULL,
+Nombre_Maestria varchar(30) NOT NULL,
+Facultad varchar(30) NOT NULL,
+Costo int NOT NULL
+);
+
+insert into maestria (ID_Maestria, Nombre_Maestria, Facultad, Costo) values(40334,'Maestría en Ingeniería con mención en Gerencia e Ingeniería de Mantenimiento','FIM',3000)
+insert into maestria (ID_Maestria, Nombre_Maestria, Facultad, Costo) values(14034,'Maestría en Ciencias en Econometría','FIEECS',3000)
+insert into maestria (ID_Maestria, Nombre_Maestria, Facultad, Costo) values(36034,'Maestría en Ciencias en Gestión Cuantitativa del riesgo financiero','FIEECS',2500,)
+insert into maestria (ID_Maestria, Nombre_Maestria, Facultad, Costo) values(34834,'Maestría en Ingeniería Industrial','FIM',3000)
+insert into maestria (ID_Maestria, Nombre_Maestria, Facultad, Costo) values(30347,'Maestría en Ingeniería con mención en Gerencia e Ingeniería de Mantenimiento','FIM',300)
+insert into maestria (ID_Maestria, Nombre_Maestria, Facultad, Costo) values(40348,'Maestría en Ingeniería de Sistemas','FIIS',3500)
+insert into maestria (ID_Maestria, Nombre_Maestria, Facultad, Costo) values(30345,'Maestría en Ingeniería con mención en Gerencia e Ingeniería de Mantenimiento','FIM',300,)
+insert into maestria (ID_Maestria, Nombre_Maestria, Facultad, Costo) values(30004,'Maestría en Ingeniería Aeronáutica','FIM',2500)
+insert into maestria (ID_Maestria, Nombre_Maestria, Facultad, Costo) values(34045,'Maestría en Ciencias con mención en Ingeniería Mecatrónica','FIM',3500)
+insert into maestria (ID_Maestria, Nombre_Maestria, Facultad, Costo) values(34343,'Maestría en Ingeniería de Sistemas','FIM',3000)
+insert into maestria (ID_Maestria, Nombre_Maestria, Facultad, Costo) values(33342,'Maestría en Ingeniería de Sistemas','FIM',3000)
+insert into maestria (ID_Maestria, Nombre_Maestria, Facultad, Costo) values(31141,'Maestría en Ciencias en Ingeniería de petróleo y gas natural','FIP',3000)
+insert into maestria (ID_Maestria, Nombre_Maestria, Facultad, Costo) values(34361,'Maestría en Ingeniería Industria','FIIS',3000)
+insert into maestria (ID_Maestria, Nombre_Maestria, Facultad, Costo) values(34334,'Maestría en Ciencias en Ingeniería de petróleo y gas natural','FIM',3000)
+insert into maestria (ID_Maestria, Nombre_Maestria, Facultad, Costo) values(31234,'Maestría en Ingeniería con mención en Gerencia e Ingeniería de Mantenimiento','FIM',3000)
+
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+create table doctorado(
+ID_Doctorado int NOT NULL,
+Nombre_Doctorado varchar(30) NOT NULL,
+Facultad varchar(30) NOT NULL,  
+Costo int NOT NULL
+);
+
+
+insert into doctorado ID_Doctorado, Facultad, Nombre_Doctorado, Costo) values(20033,'Doctorado en Ingeniería Industrial','FIIS',3500)
+insert into doctorado ID_Doctorado, Facultad, Nombre_Doctorado, Costo) values(10033,'Doctorado en Ciencias con mención en Energética','FIM',2500)
+insert into doctorado ID_Doctorado, Facultad, Nombre_Doctorado, Costo) values(25033,'Doctorado En Gobierno Y Políticas Públicas','FIIS',3000)
+insert into doctorado ID_Doctorado, Facultad, Nombre_Doctorado, Costo) values(23313,'Doctorado en Ingeniería Industrial','FIEECS',3500)
+insert into doctorado ID_Doctorado, Facultad, Nombre_Doctorado, Costo) values(24433,'Doctorado En Ciencias E Ingeniería Ambiental Con Mención En Abastecimiento De Agua Y Saneamiento','FIA',3000)
+insert into doctorado ID_Doctorado, Facultad, Nombre_Doctorado, Costo) values(20083,'Doctorado en Ingeniería Industrial','FIIS',3500)
+insert into doctorado ID_Doctorado, Facultad, Nombre_Doctorado, Costo) values(25553,'Doctorado en Ciencias con mención en Energética','FIM',3600)
+insert into doctorado ID_Doctorado, Facultad, Nombre_Doctorado, Costo) values(20053,'Doctorado en Ingeniería Industrial','FIIS',3500)
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+create table diplomado(
+ID_Diplomado int NOT NULL,
+Nombre_Diplomado varchar(30) NOT NULL,
+Facultad varchar(30) NOT NULL,
+Costo int NOT NULL
+);
+
+insert into diplomado (ID_Diplomado, Nombre_Diplomado, Facultad, Costo) values(75042,'Diplomado de Posgrado en Ingeniería de Higiene Ocupacional','FIA',2000)
+insert into diplomado (ID_Diplomado, Nombre_Diplomado, Facultad, Costo) values(75032,'Diplomado de Posgrado en Ingeniería de Gestión Ambiental','FIA',2500)
+insert into diplomado (ID_Diplomado, Nombre_Diplomado, Facultad, Costo) values(85011,'GERENCIA LOGÍSTICA Y SUPPLY CHAIN MANAGEMENT','FIQT',2000)
+insert into diplomado (ID_Diplomado, Nombre_Diplomado, Facultad, Costo) values(95002,'Diplomado de Posgrado en Ingeniería de Higiene Ocupacional','FIA',2000)
+insert into diplomado (ID_Diplomado, Nombre_Diplomado, Facultad, Costo) values(55222,'Diplomado de Posgrado en Ingeniería de Tratamiento de Aguas y Reúso de Desechos.','FIA',2500)
+insert into diplomado (ID_Diplomado, Nombre_Diplomado, Facultad, Costo) values(65302,'Diplomado de Posgrado en Ingeniería de Higiene Ocupacional','FIA',2000)
+insert into diplomado (ID_Diplomado, Nombre_Diplomado, Facultad, Costo) values(72202,'Diplomado de Posgrado en Ingeniería de Higiene Ocupacional','FIA',2000)
+insert into diplomado (ID_Diplomado, Nombre_Diplomado, Facultad, Costo) values(75502,'Diplomado de Posgrado en Ingeniería de Gestión Ambiental','FIA',2500)
+insert into diplomado (ID_Diplomado, Nombre_Diplomado, Facultad, Costo) values(85602,'Diplomado de Posgrado en Ingeniería de Higiene Ocupacional','FIA',2000)
+insert into diplomado (ID_Diplomado, Nombre_Diplomado, Facultad, Costo) values(75072,'Diplomado de Posgrado en Ingeniería de Tratamiento de Aguas y Reúso de Desechos.','FIA',2500)
+insert into diplomado (ID_Diplomado, Nombre_Diplomado, Facultad, Costo) values(55042,'Diplomado de Posgrado en Ingeniería de Higiene Ocupacional','FIA',2000)
+insert into diplomado (ID_Diplomado, Nombre_Diplomado, Facultad, Costo) values(57707,'Diplomado de Posgrado en Ingeniería de Gestión Ambiental','FIA',2500)
+insert into diplomado (ID_Diplomado, Nombre_Diplomado, Facultad, Costo) values(55889,'Diplomado de Posgrado en Ingeniería de Higiene Ocupacional','FIA',2000)
+insert into diplomado (ID_Diplomado, Nombre_Diplomado, Facultad, Costo) values(45066,'Gestion Inmobiliaria Sostenible de la vivienda','FAUA',3000)
+insert into diplomado (ID_Diplomado, Nombre_Diplomado, Facultad, Costo) values(56555,'Diplomado de Posgrado en Ingeniería de Tratamiento de Aguas y Reúso de Desechos.','FIA',2500)
+
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+
+create table educacion_ejecutiva(
+ID_Educacion_Ejecutiva int NOT NULL,
+Nombre_Educacion_Ejecutiva varchar(30) NOT NULL,
+Facultad varchar(30) NOT NULL,
+Costo int NOT NULL
+);
+
+insert into educacion_ejecutiva ID_Educacion_Ejecutiva, Nombre_Educacion_Ejecutiva, Facultad, Costo) values(55094,'DIRECCIÓN EN TRANSFORMACIÓN DIGITAL: PÚBLICA Y PRIVADA','FIIS',2000)
+insert into educacion_ejecutiva ID_Educacion_Ejecutiva, Nombre_Educacion_Ejecutiva, Facultad, Costo values(65094,'INGENIERÍA DE PROYECTOS TENSORFLOW PARA MACHINE LEARNING, DEEP LEARNING & IA CON PYTHON PARA LA INDUSTRIA 4.0','FIIS',2700)
+insert into educacion_ejecutiva ID_Educacion_Ejecutiva, Nombre_Educacion_Ejecutiva, Facultad, Costo values(58094,'INGENIERÍA DE PROYECTOS DE VISUALIZACIÓN DE DATA, DATA ANALYTICS & DATA INDUSTRIAL','FIIS',2500)
+insert into educacion_ejecutiva ID_Educacion_Ejecutiva, Nombre_Educacion_Ejecutiva, Facultad, Costo values(55994,'DIRECCIÓN EN TRANSFORMACIÓN DIGITAL: PÚBLICA Y PRIVADA','FIIS',2000)
+insert into educacion_ejecutiva ID_Educacion_Ejecutiva, Nombre_Educacion_Ejecutiva, Facultad, Costo values(35094,'INGENIERÍA DE PROYECTOS TENSORFLOW PARA MACHINE LEARNING, DEEP LEARNING & IA CON PYTHON PARA LA INDUSTRIA 4.0','FIIS',2700)
+insert into educacion_ejecutiva ID_Educacion_Ejecutiva, Nombre_Educacion_Ejecutiva, Facultad, Costo values(255094,'INGENIERÍA DE PROYECTOS DE VISUALIZACIÓN DE DATA, DATA ANALYTICS & DATA INDUSTRIAL','FIIS',2500)
+insert into educacion_ejecutiva ID_Educacion_Ejecutiva, Nombre_Educacion_Ejecutiva, Facultad, Costo values(55094,'INGENIERÍA DE LA CONSTRUCCIÓN DE PROCESOS ETLS CON PENTAHO PDI 8.3','FIIS',3000)
+insert into educacion_ejecutiva ID_Educacion_Ejecutiva, Nombre_Educacion_Ejecutiva, Facultad, Costo values(55774,'DIRECCIÓN EN TRANSFORMACIÓN DIGITAL: PÚBLICA Y PRIVADA','FIIS',2000)
+insert into educacion_ejecutiva ID_Educacion_Ejecutiva, Nombre_Educacion_Ejecutiva, Facultad, Costo values(55053,'INGENIERÍA DE PROYECTOS TENSORFLOW PARA MACHINE LEARNING, DEEP LEARNING & IA CON PYTHON PARA LA INDUSTRIA 4.0','FIIS',2700)
+insert into educacion_ejecutiva ID_Educacion_Ejecutiva, Nombre_Educacion_Ejecutiva, Facultad, Costo values(52222,'DIRECCIÓN EN TRANSFORMACIÓN DIGITAL: PÚBLICA Y PRIVADA','FIIS',2000)
+insert into educacion_ejecutiva ID_Educacion_Ejecutiva, Nombre_Educacion_Ejecutiva, Facultad, Costo values(55094,'DIRECCIÓN EN TRANSFORMACIÓN DIGITAL: PÚBLICA Y PRIVADA','FIIS',2000)
+insert into educacion_ejecutiva ID_Educacion_Ejecutiva, Nombre_Educacion_Ejecutiva, Facultad, Costo values(35094,'INGENIERÍA DE PROYECTOS DE VISUALIZACIÓN DE DATA, DATA ANALYTICS & DATA INDUSTRIAL','FIIS',2500)
+insert into educacion_ejecutiva ID_Educacion_Ejecutiva, Nombre_Educacion_Ejecutiva, Facultad, Costo values(22094,'INGENIERÍA DE LA CONSTRUCCIÓN DE PROCESOS ETLS CON PENTAHO PDI 8.3','FIIS',3000)
+insert into educacion_ejecutiva ID_Educacion_Ejecutiva, Nombre_Educacion_Ejecutiva, Facultad, Costo values(55774,'INGENIERÍA DE PROYECTOS TENSORFLOW PARA MACHINE LEARNING, DEEP LEARNING & IA CON PYTHON PARA LA INDUSTRIA 4.0','FIIS',2700)
+insert into educacion_ejecutiva ID_Educacion_Ejecutiva, Nombre_Educacion_Ejecutiva, Facultad, Costo values(55554,'DIRECCIÓN EN TRANSFORMACIÓN DIGITAL: PÚBLICA Y PRIVADA','FIIS',2000)
+
+
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+create table alumno(
+ID_Alumno varchar(30) NOT NULL,
+Nombre varchar(30) NOT NULL,
+Apellido varchar(30) NOT NULL,
+Direccion varchar(100) NOT NULL,
+Email varchar(50) NOT NULL,
+Telefono int NOT NULL,
+Facultad varchar(30)
+);
+
+
+insert into alumno (ID_Alumno, Nombre, Apellido, Direccion, Email, Telefono, Facultad) values('20070501c','Rigoberto Alfonso','Brincas Arancibia','Av Gonzales Prada 1334','brigobertoal@uni.pe',3849501,'FIIS')
+insert into alumno (ID_Alumno, Nombre, Apellido, Direccion, Email, Telefono, Facultad) values('20032301j','Carlos Alberto',' Moran Baquijano','Calle Las Begonias 2934','moranbb@uni.pe',4849501,'FIP')
+insert into alumno (ID_Alumno, Nombre, Apellido, Direccion, Email, Telefono, Facultad) values('20075541g','Marco Alberto',' Tinoco Moran','Av Naranjal 1123','tinoccol@gmail.com,993735867,'FIIS')
+insert into alumno (ID_Alumno, Nombre, Apellido, Direccion, Email, Telefono, Facultad) values('20070501f','Miguel Roberto',' Pariasca Ezcurra','Av Villa Maria','mmiguelrob_al@hotmail.com',993849501,'FC')
+insert into alumno (ID_Alumno, Nombre, Apellido, Direccion, Email, Telefono, Facultad) values('20050301d','Miguel Gerardo','Apaza Agueroo','Av angamos Oeste 1534','rigobertoal@uni.pe',3349501,'FIIS')
+insert into alumno (ID_Alumno, Nombre, Apellido, Direccion, Email, Telefono, Facultad) values('20070501g','Ricardo Manuel',' Orbegozo Alva','Calle los Girasoles 435','ricardor_obert@uni.pe',993849501,'FAUA')
+insert into alumno (ID_Alumno, Nombre, Apellido, Direccion, Email, Telefono, Facultad) values('20062201h','Luigy Rosulo',' Anticuya Carpio','Av San Felipe 2344','luigi_55@yahoo.es',994438501,'FIC')
+insert into alumno (ID_Alumno, Nombre, Apellido, Direccion, Email, Telefono, Facultad) values('20050551f','Oswaldo Celamir',' Yglesias Suarez','Av Los Educadore 3452','oswygle_8@uni.pe',7849501,'FIIS')
+insert into alumno (ID_Alumno, Nombre, Apellido, Direccion, Email, Telefono, Facultad) values('20030331d','Rigoberto Enrique','Brincas Cruz','Av Caqueta 345','r_rigobertoal@gmail.com',990384901,'FIQT')
+insert into alumno (ID_Alumno, Nombre, Apellido, Direccion, Email, Telefono, Facultad) values('20042521a','Juvenal Peter','Briones Montenegro','Los Girasoles 3456','jjuuvv_11l@yahoo.es',7249501,'FIIS')
+insert into alumno (ID_Alumno, Nombre, Apellido, Direccion, Email, Telefono, Facultad) values('20060111d','Abel Axel','Benito Incari','Av angamos Oeste 1334',rigobertoal@uni.pe,3849701,'FIIS')
+insert into alumno (ID_Alumno, Nombre, Apellido, Direccion, Email, Telefono, Facultad) values('20074531c','Armando Joel','Castañeda sanchez ','Av angamos Este 1145','aarrman@hotmail.com',2849501,'FIIS')
+insert into alumno (ID_Alumno, Nombre, Apellido, Direccion, Email, Telefono, Facultad) values('20060441a','Rebeca Maria','Arancibia del Campo ','Av La Tablada 2345','rebeca_45@hotmail.com',999349501,'FIQT')
+insert into alumno (ID_Alumno, Nombre, Apellido, Direccion, Email, Telefono, Facultad) values('20070501c','Jesua Raul','Brincas Arancibia','Calle los Tulipanes 345',arigob@uni.pe,994549501,'FIIS')
+insert into alumno (ID_Alumno, Nombre, Apellido, Direccion, Email, Telefono, Facultad) values('20045211c','Jorge Ernesto ','Alvarez de la Fuente','Av la Revolucion 5678','alvarez_45l@uni.pe',3849501,'FIIS')
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+create table docente(
+ID_Docente varchar(30) NOT NULL,
+Nombre varchar(30) NOT NULL,
+Apellido varchar(30) NOT NULL,
+Facultad  varchar(30) NOT NULL,
+ID_Especialidad int NOT NULL,
+Nombre_Especialidad varchar(50) NOT NULL,
+Email varchar(50) NOT NULL
+);
+
+insert into docente ID_Docente, Nombre, Apellido, Facultad, ID_Especialidad, Nombre_Especialidad, Email) values('19849451c','Richard Favio','Acuña Ortega','Ciencias','Maes123','Maestria','richardacuña@)edu.uni.pe')
+insert into docente ID_Docente, Nombre, Apellido, Facultad, ID_Especialidad, Nombre_Especialidad, Email) values('19778143h','Pedro ','Canales Garcia','Doct023','Doctorado','19778143h@)uni.edu.pe')
+insert into docente ID_Docente, Nombre, Apellido, Facultad, ID_Especialidad, Nombre_Especialidad, Email) values('19849451c','Carlos Alberto ','Diaz Dominguez','Ciencias','Maes123','Maestria','carlosdominguez2@)edu.uni.pe')
+insert into docente ID_Docente, Nombre, Apellido, Facultad, ID_Especialidad, Nombre_Especialidad, Email) values('19849451c','Cesar Martin','Cruz Salazar','Ciencias','Maes123','Maestria','martincruz@)edu.uni.pe')
+insert into docente ID_Docente, Nombre, Apellido, Facultad, ID_Especialidad, Nombre_Especialidad, Email) values('19849451c','Carlos Alberto','Gazani Contreras','Doc023','Doctorado','carlosgazanni@)edu.uni.pe')
+insert into docente ID_Docente, Nombre, Apellido, Facultad, ID_Especialidad, Nombre_Especialidad, Email) values('19849451c','Javier Pedro','Gonzalo Quinto','Diplomado','quintopedro@)edu.uni.pe')
+insert into docente ID_Docente, Nombre, Apellido, Facultad, ID_Especialidad, Nombre_Especialidad, Email) values('19849451c','William Carlos ','Echegaray bailon','Ciencias','Doc023','Doctorado','williameche@)edu.uni.pe')
+insert into docente ID_Docente, Nombre, Apellido, Facultad, ID_Especialidad, Nombre_Especialidad, Email) values('19849451c','Oswaldo Jose','Velasquez Castañon','Ciencias','Maes123','Maestria','oswcasta@edu.uni.pe')
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+create table certificacion(
+ID_Certificacion int NOT NULL,
+Nombre varchar(30) NOT NULL,
+Apellido varchar(30) NOT NULL,
+Direccion varchar(100) NOT NULL,
+Email varchar(50) NOT NULL,
+Telefono int NOT NULL,
+Grado varchar(30) NOT NULL
+);
+
+
+insert into certificacion (ID_Certificacion, Nombre, Apellido, Direccion, Email, Telefono, Grado) values(2345,'Pedro Miguel','Ezcurra Paredes','Los Capulies 2345','pedrommig@)yahoo.com',994887266,'Doctor')
+insert into certificacion (ID_Certificacion, Nombre, Apellido, Direccion, Email, Telefono, Grado) values(1245,'Juan Alberto','Paquerizo Muñoz','Los Abetos 1234','carmonita334@hotmail.com',992304566,'Magister')
+insert into certificacion (ID_Certificacion, Nombre, Apellido, Direccion, Email, Telefono, Grado) values(8234,'Sebastian  Moises','Coronado   Peralta ','Jr. Los Capulies 478','sebastian_mandu@yahoo.es',998234532,'Diplomado')
+insert into certificacion (ID_Certificacion, Nombre, Apellido, Direccion, Email, Telefono, Grado) values(77234,'Alvaro Joshua ','Sanchez Mandujano','Av Nueva Esperanza 5838','SanchezJoshua@yahoo.com',998884532,'Magister')
+insert into certificacion (ID_Certificacion, Nombre, Apellido, Direccion, Email, Telefono, Grado) values(4234,'Alberto Julian','Garcia Solis','Jr. Los Molinos  6798','aalbertt@gmail.com',99835532,'Magister')
+insert into certificacion (ID_Certificacion, Nombre, Apellido, Direccion, Email, Telefono, Grado) values(3274,'Miguel Jesus ','Peralta Mandujano','Jr. La Esperanza 7798','marquito_44@yahoo.es',9983345321,'Diplomado')
+insert into certificacion (ID_Certificacion, Nombre, Apellido, Direccion, Email, Telefono, Grado) values(3004,'Marco Carlos  ','Carpio Tinta','Av.Los constructores 2299','carlos_23@yahoo.es',999034532,'Doctor')
+insert into certificacion (ID_Certificacion, Nombre, Apellido, Direccion, Email, Telefono, Grado) values(3294,'Julio Armando ','Monserrate Chunta','Av. Corregidores 2345','chunte_34@yahoo.es',998300532,'Diplomado')
+insert into certificacion (ID_Certificacion, Nombre, Apellido, Direccion, Email, Telefono, Grado) values(4234,'Manuel Lois ','Peralta Seferino','Jr. El toro loco 1798','seferinolois@yahoo.com',998334000,'Doctor')
+insert into certificacion (ID_Certificacion, Nombre, Apellido, Direccion, Email, Telefono, Grado) values(6234,'Marco Aurelio ','Gonzales Panduro','calle  los Ruiseñores 577','el_tino4@yahoo.es',990334932,'Magister')
+insert into certificacion (ID_Certificacion, Nombre, Apellido, Direccion, Email, Telefono, Grado) values(7734,'Mario Jesus ','Moran Mandujano','Av. Los Condores 111','mariojeshu@gmail.com',999334532,'Diplomado')
+
+---------------------------------------------------------------------------------
+
+CONSULTAS
+Deberá formular el enunciado, la consulta y una captura del resultado:
+a) Consulta que utilice funciones de agregación (AVG , COUNT, MIN, MAX, SUM,
+etc) 2 como mínimo
+
+
+b) Consultas que usen las cláusulas WHERE, GROUP BY, HAVING, ORDER BY: 2 como mínimo
+
+
+c) Subconsultas de cada tipo (uso de operadores in, =, >=,<=, exists, all, any ): 4 como mínimo.
+
+
+VISTAS
+Deberá formular el enunciado, la consulta y una captura del resultado:
+a) Vista que utilice una operación de conjuntos: 2 como mínimo
+
+
+b) Vista cuyo origen de datos sean dos tablas, una por cada tipo de JOIN incluyendo
+una condición WHERE: 3 como mínimo
+
+
+c) Vista cuyo origen de datos sea otra vista: 2 como mínimo
+
+
+FUNCIONES
+Deberá formular el enunciado, el programa y una captura del resultado.
+Diseñe programas que realicen las siguientes operaciones sobre su base de datos:
+a) Consultas utilizando joins.
+
+
+b) Inserciones de tuplas en las tablas de la BD.
+
+
+c) Actualizaciones de tablas de la BD.
+
+
+d) Eliminaciones de tablas de la BD.
+
+
+
+
+
+
+
