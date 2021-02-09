@@ -11,7 +11,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 create table admision(
 ID_Postulante postu references postulante(ID_Postulante),
--ID_Especialidad espec,
+ID_Especialidad espec NOT NULL,
 Especialidad varchar(150),
 Email varchar(30) references postulante(Email),
 costo posint NOT NULL
@@ -200,7 +200,7 @@ Apellido varchar(30) NOT NULL,
 Direccion varchar(100) NOT NULL,
 Email varchar(50) UNIQUE NOT NULL,
 Telefono int UNIQUE NOT NULL,
-Facultad FACU
+Facultad FACU NOT NULL,
 );
 
 
@@ -329,6 +329,8 @@ SELECT (nombre, apellido) FROM Alumnos where facultad = 'fc';
 
 - La lista de los nombres de todos los profesorres de posgrado en orden ascendente (order by):
 
+SELECT nombre,apellido FROM docente ORDER BY nombre ASC;
+
 c) Subconsultas de cada tipo (uso de operadores in, =, >=,<=, exists, all, any ): 4 como mínimo.
 
 - Doctorados con costo menor a 3000 soles (<) :
@@ -363,19 +365,22 @@ ON pos.ID_Postulante = ad.ID_Postulante
 
 b) Vista cuyo origen de datos sean dos tablas, una por cada tipo de JOIN incluyendo una condición WHERE: 3 como mínimo
 
--
+-Se crea una vista ,seleccionando Nombre,Apellido,email,facultad,Especialidad,correo,costo
+Considerandose aquellas columnas  cuyo pos.ID_Postulante = ad.ID_Postulante cuya Especialidad="Maestria"
 
 CREATE view vista_alumno_posgrado2  AS
 SELECT pos.Nombre, pos.Apellido, pos.email, pos.facultad,ad.Especialidad, ad.correo, ad.costo 
 FROM postulante pos LEFT JOIN admision ad on pos.ID_Postulante = ad.ID_Postulante
  WHERE Especialidad="Maestria"
 
--
+-Se crea una vista seleccionando Nombre,Apellido,Direccion,Email,Biblioteca_Central,Bolsa_trabajo,tesis
+Considerandose aquellas columnas donde alu.ID_Alumno = ser.ID_Alumno cuya Biblioteca_Central="FIEE"
 
 CREATE view vista_alumno_posgrado3 AS
 SELECT alu.Nombre, alu.Apellido, alu.Dirección, alu.Email, ser.Biblioteca_Central, ser.Bolsa_Trabajo, ser.Tesis FROM alumnos alu RIGHT JOIN servicios ser on alu.ID_Alumno = ser.ID_Alumno where Biblioteca_Central="FIEE"
 
--
+-Se crea una vista seleccionando Nombre,Apellido,email,facultad,Especialidad,correo,costos
+Considerandose aquellas columnas donde pos.ID_Postulante = ad.ID_Postulante cuya Facultad="Ciencia"
 
 CREATE view vista_alumno_posgrado4 AS
 SELECT pos.Nombre, pos.Apellido, pos.email, pos.facultad,ad.Especialidad, ad.correo, ad.costo
@@ -384,12 +389,12 @@ WHERE Facultad="Ciencia"
 
 c) Vista cuyo origen de datos sea otra vista: 2 como mínimo
 
--
+-Se crea una vista sobre la vista ya creada vista_alumno_posgrado4 que nos pide obtener el Nombre y el apellido de esa vista cuya facultad es ciencias
 
 CREATE view vista_alumno5 AS
 SELECT pos.Nombre,pos.Apellido FROM vista_alumno_posgrado4 where pos.facultad=’ciencias’;
 
--
+-Se crea una vista sobre la vista ya creada vista_alumno_posgrado3 que nos pide obtener el apellido y la dirección de esa vista cuya tesis es ‘la soba del cuy’
 
 CREATE view vista_alumno6 AS
 SELECT alu.Apellido,direccion FROM vista_alumno_posgrado3 WHERE ser.tesis=’la soba del cuy’;
