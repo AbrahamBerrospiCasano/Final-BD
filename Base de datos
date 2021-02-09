@@ -1,64 +1,72 @@
 ---------------------------------------------------------------------------------------------------------------------------
 create database postgrado;
 
+CREATE DOMAIN posint AS integer CHECK (VALUE > 0);
+CREATE DOMAIN postu AS integer CHECK (VALUE > 0 AND VALUE < 9999);
+CREATE DOMAIN espec AS integer CHECK (VALUE > 0 AND VALUE < 500);
+CREATE DOMAIN FACULTAD VARCHAR(50)
+     CHECK (VALUE IN ('fc', 'faua', 'fia', 'figmm', 'fiqt', 'fiee', 'fic', 'fieccs', 'fim', 'fip', 'fiss');
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
 create table admision(
-ID_Postulante int NOT NULL,
+ID_Postulante int references postulante(ID_Postulante),
 ID_Especialidad varchar(30),
 Especialidad varchar(150),
 correo varchar(30),
-Costo int NOT NULL
+costo int NOT NULL
 );
  
 
-insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('145543','Maestria','Maestría en Ciencias en Conservación y Gestión del Patrimonio Edificado (CGPE)',' joel@uni.pe',2700) ;
-insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('345043','Doctorado','Doctorado en Ingeniería Industrial', ' ',5500);
-insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('445543','Maestria','MAESTRÍA EN CIENCIAS EN ENERGÍAS RENOVABLES Y EFICIENCIA ENERGÉTICA',' ',2200);
-insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('345541','Educacion Ejecutiva',' ','aamaginel@uni.pe',500);
-insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('745543','Doctorado','Doctorado en Ciencias con mención en Química','',7500);
-insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('335543','Maestria','MAESTRÍA EN CIENCIAS EN MATEMÁTICA APLICADA','',1500);
-insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('345503','Maestria','Especialidad Computación Científica','',1200);
-insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('340043','Doctorado','Doctorado en Ciencias con mención en Matemática','',6200);
-insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('305543','Diplomado','Doctorado en Ciencias con mención en Química','',5500);
-insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('115543','Maestria','Maestría en Ciencias en Regeneración Urbana (RU) ','',2700);
-insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('307543','Doctorado','MAESTRÍA EN CIENCIAS EN FÍSICA MÉDICA','',3500);
-insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('885543','Doctorado','Doctorado en Ciencias con mención en Física','',6500);
-insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('345555','Educacion Ejecutiva','DIRECCIÓN EN TRANSFORMACIÓN DIGITAL: PÚBLICA Y PRIVADA','',750);
-insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('100543','Diplomado','BUSINESS INTELLIGENCE & BUSINESS ANALYTICS',' ',1500);
-insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('222003','Maestria' ,'MAESTRÍA EN CIENCIAS EN ENERGÍA NUCLEAR','','2500);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('1455','Maestria','Maestría en Ciencias en Conservación y Gestión del Patrimonio Edificado (CGPE)',' joel@uni.pe',2700) ;
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('3450','Doctorado','Doctorado en Ingeniería Industrial', ' ',5500);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('4455','Maestria','MAESTRÍA EN CIENCIAS EN ENERGÍAS RENOVABLES Y EFICIENCIA ENERGÉTICA',' ',2200);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('3455','Educacion Ejecutiva',' ','aamaginel@uni.pe',500);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('7455','Doctorado','Doctorado en Ciencias con mención en Química','',7500);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('3355','Maestria','MAESTRÍA EN CIENCIAS EN MATEMÁTICA APLICADA','',1500);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('3455','Maestria','Especialidad Computación Científica','',1200);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('3400','Doctorado','Doctorado en Ciencias con mención en Matemática','',6200);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('3055','Diplomado','Doctorado en Ciencias con mención en Química','',5500);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('1155','Maestria','Maestría en Ciencias en Regeneración Urbana (RU) ','',2700);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('3075','Doctorado','MAESTRÍA EN CIENCIAS EN FÍSICA MÉDICA','',3500);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('8855','Doctorado','Doctorado en Ciencias con mención en Física','',6500);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('3455','Educacion Ejecutiva','DIRECCIÓN EN TRANSFORMACIÓN DIGITAL: PÚBLICA Y PRIVADA','',750);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('1005','Diplomado','BUSINESS INTELLIGENCE & BUSINESS ANALYTICS',' ',1500);
+insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('2220','Maestria' ,'MAESTRÍA EN CIENCIAS EN ENERGÍA NUCLEAR','','2500);
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 create table postulante(
-ID_Postulante varchar(30) NOT NULL,
+ID_Postulante varchar(30) PRIMARY KEY NOT NULL,
 ID_Especialidad varchar(30) NOT NULL,
 Nombre varchar(30) NOT NULL,
 Apellido varchar(30) NOT NULL,
-Email varchar(50) NOT NULL,
+Email varchar(50) UNIQUE NOT NULL,
 Facultad varchar(30),
 Tipo_Postgrado varchar(30) NOT NULL
 );
 
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1234M','Maes123','Carlos Alberto',' Moran Baquijano','carlosalb34@yahoo.es','Ciencia','Maestria');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1235M','Maes123','Juan Carlos',' Paramonga Alvitrez','juan34@yahoo.es','Ing. Quimica','Maestria');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('4234D','Doct023','Carlos Juvenal',' Carrion  Zamora','juvencarlos@yahoo.com','Ing. electronica','Doctorado');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1234M','Maes123','Mario Alberto',' Tinoco Moran','tinoco_alb3@gmail.com','Ciencia','Maestria');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1134Di','Dipl230','Jesua Luis',' Moreno Baquijano','morenobbj@yahoo.es','Ciencia','Diplomado');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1334M','Maes123','Miguel Alberto',' Pariasca Ezcurra','ezcurisca1@yahoo.com','Ing. civil','Maestria');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('100EE','EduEj034','Raul Pedro',' Roman Zevallos','rrzzlls11@gmail.com','Educacion','Educacion Ejecutiva');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('2234D','Doct023','Rigoberto Jose','Panduro Moran ','rigobertojj_we4@uni.pe','Ciencia','Doctorado');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('4234M','Maes123','Miguel Carlos','Apaza Agueroo','miguelcarlosalb34@yahoo.es','Educacion','Maestria');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('4235M','Maes123','Ricarso Manuel',' Orbegozo Alva','rickyme@yahoo.com','Ing. Sistemas','Maestria');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('113Di','Dipl230','Anselmo Jesus',' Bustamante Sotomayor','Ansejesus_4@yahoo.es','Ciencia','Diplomado');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1234D','Doct023','Samuel Guillermo','Negrete Garcia','negretegg@gmail.com','Ing. Ambiental','Doctorado');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('5534M','Maes123','Luis Rosulo',' Anticuya Carpio','anticucu_55@yahoo.com','Ing. Quimica','Maestria');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('493Di','Dipl230','Oswaldo Celamir',' Yglesias Suarez','oswwsuazz@gmail.com','Ciencia','Diplomado');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1004M','Maes123','Fernando Joel',' Garcia Montenegro','garciammm_2@uni.pe','Ciencia','Maestria');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1234','Maes123','Carlos Alberto',' Moran Baquijano','carlosalb34@yahoo.es','Ciencia','Maestria');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1235','Maes123','Juan Carlos',' Paramonga Alvitrez','juan34@yahoo.es','Ing. Quimica','Maestria');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('4234','Doct023','Carlos Juvenal',' Carrion  Zamora','juvencarlos@yahoo.com','Ing. electronica','Doctorado');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1234','Maes123','Mario Alberto',' Tinoco Moran','tinoco_alb3@gmail.com','Ciencia','Maestria');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1134','Dipl230','Jesua Luis',' Moreno Baquijano','morenobbj@yahoo.es','Ciencia','Diplomado');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1334','Maes123','Miguel Alberto',' Pariasca Ezcurra','ezcurisca1@yahoo.com','Ing. civil','Maestria');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1005','EduEj034','Raul Pedro',' Roman Zevallos','rrzzlls11@gmail.com','Educacion','Educacion Ejecutiva');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('2234','Doct023','Rigoberto Jose','Panduro Moran ','rigobertojj_we4@uni.pe','Ciencia','Doctorado');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('4234','Maes123','Miguel Carlos','Apaza Agueroo','miguelcarlosalb34@yahoo.es','Educacion','Maestria');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('4235','Maes123','Ricarso Manuel',' Orbegozo Alva','rickyme@yahoo.com','Ing. Sistemas','Maestria');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1134','Dipl230','Anselmo Jesus',' Bustamante Sotomayor','Ansejesus_4@yahoo.es','Ciencia','Diplomado');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1234','Doct023','Samuel Guillermo','Negrete Garcia','negretegg@gmail.com','Ing. Ambiental','Doctorado');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('5534','Maes123','Luis Rosulo',' Anticuya Carpio','anticucu_55@yahoo.com','Ing. Quimica','Maestria');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('4936','Dipl230','Oswaldo Celamir',' Yglesias Suarez','oswwsuazz@gmail.com','Ciencia','Diplomado');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1004','Maes123','Fernando Joel',' Garcia Montenegro','garciammm_2@uni.pe','Ciencia','Maestria');
 
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 create table servicios(
-ID_Alumno varchar(30) NOT NULL,
+ID_Alumno varchar(30) references Alumno(ID_Alumno),
 Biblioteca_Central varchar(30),
 Bolsa_Trabajo varchar(80),
 Tesis varchar(80)
@@ -85,7 +93,7 @@ insert into servicios (ID_Alumno, Biblioteca_Central, Bolsa_Trabajo, Tesis) valu
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 create table maestria(
-ID_Maestria int NOT NULL,
+ID_Maestria int PRIMARY KEY NOT NULL,
 Nombre_Maestria varchar(30) NOT NULL,
 Facultad varchar(30) NOT NULL,
 Costo int NOT NULL
@@ -112,9 +120,9 @@ insert into maestria (ID_Maestria, Nombre_Maestria, Facultad, Costo) values(3123
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 create table doctorado(
-ID_Doctorado int NOT NULL,
-Nombre_Doctorado varchar(30) NOT NULL,
-Facultad varchar(30) NOT NULL,  
+ID_Doctorado int PRIMARY KEY NOT NULL,
+Nombre_Doctorado varchar(30) UNIQUE NOT NULL, 
+Facultad varchar(30) UNIQUE NOT NULL,
 Costo int NOT NULL
 );
 
@@ -131,9 +139,9 @@ insert into doctorado ID_Doctorado, Facultad, Nombre_Doctorado, Costo) values(20
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 create table diplomado(
-ID_Diplomado int NOT NULL,
-Nombre_Diplomado varchar(30) NOT NULL,
-Facultad varchar(30) NOT NULL,
+ID_Diplomado int PRIMARY KEY NOT NULL,
+Nombre_Diplomado varchar(30) UNIQUE NOT NULL,
+Facultad varchar(30) UNIQUE NOT NULL,
 Costo int NOT NULL
 );
 
@@ -160,9 +168,9 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
 create table educacion_ejecutiva(
-ID_Educacion_Ejecutiva int NOT NULL,
-Nombre_Educacion_Ejecutiva varchar(30) NOT NULL,
-Facultad varchar(30) NOT NULL,
+ID_Educacion_Ejecutiva PRIMARY KEY int NOT NULL,
+Nombre_Educacion_Ejecutiva varchar(30) UNIQUE NOT NULL,
+Facultad varchar(30) UNIQUE NOT NULL,
 Costo int NOT NULL
 );
 
@@ -187,12 +195,12 @@ insert into educacion_ejecutiva ID_Educacion_Ejecutiva, Nombre_Educacion_Ejecuti
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 create table alumno(
-ID_Alumno varchar(30) NOT NULL,
+ID_Alumno varchar(30) PRIMARY KEY NOT NULL,
 Nombre varchar(30) NOT NULL,
 Apellido varchar(30) NOT NULL,
 Direccion varchar(100) NOT NULL,
-Email varchar(50) NOT NULL,
-Telefono int NOT NULL,
+Email varchar(50) UNIQUE NOT NULL,
+Telefono int UNIQUE NOT NULL,
 Facultad varchar(30)
 );
 
@@ -216,13 +224,13 @@ insert into alumno (ID_Alumno, Nombre, Apellido, Direccion, Email, Telefono, Fac
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 create table docente(
-ID_Docente varchar(30) NOT NULL,
+ID_Docente varchar(30) PRIMARY KEY NOT NULL,
 Nombre varchar(30) NOT NULL,
 Apellido varchar(30) NOT NULL,
 Facultad  varchar(30) NOT NULL,
 ID_Especialidad int NOT NULL,
 Nombre_Especialidad varchar(50) NOT NULL,
-Email varchar(50) NOT NULL
+Email varchar(50) UNIQUE NOT NULL
 );
 
 insert into docente ID_Docente, Nombre, Apellido, Facultad, ID_Especialidad, Nombre_Especialidad, Email) values('19849451c','Richard Favio','Acuña Ortega','Ciencias','Maes123','Maestria','richardacuña@)edu.uni.pe')
@@ -237,12 +245,12 @@ insert into docente ID_Docente, Nombre, Apellido, Facultad, ID_Especialidad, Nom
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 create table certificacion(
-ID_Certificacion int NOT NULL,
-Nombre varchar(30) NOT NULL,
-Apellido varchar(30) NOT NULL,
-Direccion varchar(100) NOT NULL,
-Email varchar(50) NOT NULL,
-Telefono int NOT NULL,
+ID_Certificacion int PRIMARY KEY NOT NULL,
+Nombre varchar(30) references alumno(nombre),
+Apellido varchar(30) references alumno(apellido),
+Direccion varchar(100) references alumno(direccion),
+Email varchar(50) references alumno(email),
+Telefono int references alumno(telefono),
 Grado varchar(30) NOT NULL
 );
 
@@ -261,47 +269,109 @@ insert into certificacion (ID_Certificacion, Nombre, Apellido, Direccion, Email,
 
 ---------------------------------------------------------------------------------
 
+II. CREACION DE DOMINIOS, RELACIONES Y LLAVES: Se evaluará la integridad
+de la información buscando que las tuplas reflejen lo mejor posible la realidad del
+modelo del negocio.
+
+a) Definición de dominios: 4 como mínimo
+
+
+
+b) Claves Primarias: 4 como mínimo
+
+ID_Postulante varchar(30) PRIMARY KEY NOT NULL,                            //
+//////////////////////ID_Certificacion int PRIMARY KEY NOT NULL,           //
+ID_Docente varchar(30) PRIMARY KEY NOT NULL,                               //
+ID_Alumno varchar(30) PRIMARY KEY NOT NULL,                                //
+ID_Educacion_Ejecutiva PRIMARY KEY int NOT NULL,                           //
+ID_Diplomado int PRIMARY KEY NOT NULL,                                     //
+ID_Doctorado int PRIMARY KEY NOT NULL,                                     //
+ID_Maestria int PRIMARY KEY NOT NULL,                                      //
+
+c) Claves Únicas: 4 como mínimo
+
+Nombre_Educacion_Ejecutiva varchar(30) UNIQUE NOT NULL,                     //table educacion_ejecutiva
+Facultad varchar(30) UNIQUE NOT NULL,                                       //table doctorado
+Nombre_Diplomado varchar(30) UNIQUE NOT NULL,                               //table diplomado
+Facultad varchar(30) UNIQUE NOT NULL,                                       //table diplomado
+Nombre_Doctorado varchar(30) UNIQUE NOT NULL,                               //table doctorado
+
+d) Claves Foráneas: 4 como mínimo
+
+ID_Postulante int references postulante(ID_Postulante),                      //table admision
+ID_Alumno varchar(30) references Alumno(ID_Alumno),                          //table servicios
+Nombre varchar(30) references alumno(nombre),                                //table certificacion
+Apellido varchar(30) references alumno(apellido),                            //table certificacion
+Direccion varchar(100) references alumno(direccion),                         //table certificacion
+Email varchar(50) references alumno(email),                                  //table certificacion
+Telefono int references alumno(telefono),                                    //table certificacion
+
 CONSULTAS
 Deberá formular el enunciado, la consulta y una captura del resultado:
 a) Consulta que utilice funciones de agregación (AVG , COUNT, MIN, MAX, SUM,
 etc) 2 como mínimo
 
+-
+
+-
 
 b) Consultas que usen las cláusulas WHERE, GROUP BY, HAVING, ORDER BY: 2 como mínimo
 
+-
+
+-
 
 c) Subconsultas de cada tipo (uso de operadores in, =, >=,<=, exists, all, any ): 4 como mínimo.
 
+-
+
+-
+
+-
+
+-
 
 VISTAS
 Deberá formular el enunciado, la consulta y una captura del resultado:
 a) Vista que utilice una operación de conjuntos: 2 como mínimo
 
+-
+
+-
 
 b) Vista cuyo origen de datos sean dos tablas, una por cada tipo de JOIN incluyendo
 una condición WHERE: 3 como mínimo
 
+-
+
+-
+
+-
 
 c) Vista cuyo origen de datos sea otra vista: 2 como mínimo
 
+-
+
+-
 
 FUNCIONES
 Deberá formular el enunciado, el programa y una captura del resultado.
 Diseñe programas que realicen las siguientes operaciones sobre su base de datos:
 a) Consultas utilizando joins.
 
+-
+
 
 b) Inserciones de tuplas en las tablas de la BD.
 
+-
 
 c) Actualizaciones de tablas de la BD.
 
+-
 
 d) Eliminaciones de tablas de la BD.
 
-
-
-
-
+-
 
 
