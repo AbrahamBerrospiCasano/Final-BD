@@ -4,20 +4,19 @@ create database postgrado;
 CREATE DOMAIN posint AS integer CHECK (VALUE > 0);
 CREATE DOMAIN postu AS integer CHECK (VALUE > 0 AND VALUE < 9999);
 CREATE DOMAIN espec AS integer CHECK (VALUE > 0 AND VALUE < 500);
-CREATE DOMAIN FACULTAD VARCHAR(50)
+CREATE DOMAIN FACU VARCHAR(50)
      CHECK (VALUE IN ('fc', 'faua', 'fia', 'figmm', 'fiqt', 'fiee', 'fic', 'fieccs', 'fim', 'fip', 'fiss');
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 create table admision(
-ID_Postulante int references postulante(ID_Postulante),
-ID_Especialidad varchar(30),
+ID_Postulante postu references postulante(ID_Postulante),
+-ID_Especialidad espec,
 Especialidad varchar(150),
-correo varchar(30),
-costo int NOT NULL
+Email varchar(30) references postulante(Email),
+costo posint NOT NULL
 );
  
-
 insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('1455','Maestria','Maestría en Ciencias en Conservación y Gestión del Patrimonio Edificado (CGPE)',' joel@uni.pe',2700) ;
 insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('3450','Doctorado','Doctorado en Ingeniería Industrial', ' ',5500);
 insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Costo) values('4455','Maestria','MAESTRÍA EN CIENCIAS EN ENERGÍAS RENOVABLES Y EFICIENCIA ENERGÉTICA',' ',2200);
@@ -37,12 +36,12 @@ insert into admision (ID_Postulante, ID_Especialidad, Especialidad, correo, Cost
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 create table postulante(
-ID_Postulante varchar(30) PRIMARY KEY NOT NULL,
+ID_Postulante postu PRIMARY KEY NOT NULL,
 ID_Especialidad varchar(30) NOT NULL,
 Nombre varchar(30) NOT NULL,
 Apellido varchar(30) NOT NULL,
 Email varchar(50) UNIQUE NOT NULL,
-Facultad varchar(30),
+Facultad FACU NOT NULL,
 Tipo_Postgrado varchar(30) NOT NULL
 );
 
@@ -95,8 +94,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 create table maestria(
 ID_Maestria int PRIMARY KEY NOT NULL,
 Nombre_Maestria varchar(30) NOT NULL,
-Facultad varchar(30) NOT NULL,
-Costo int NOT NULL
+Facultad FACU NOT NULL,
+Costo posint NOT NULL
 );
 
 insert into maestria (ID_Maestria, Nombre_Maestria, Facultad, Costo) values(40334,'Maestría en Ingeniería con mención en Gerencia e Ingeniería de Mantenimiento','FIM',3000)
@@ -122,8 +121,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 create table doctorado(
 ID_Doctorado int PRIMARY KEY NOT NULL,
 Nombre_Doctorado varchar(30) UNIQUE NOT NULL, 
-Facultad varchar(30) UNIQUE NOT NULL,
-Costo int NOT NULL
+Facultad FACU UNIQUE NOT NULL,
+Costo posint NOT NULL
 );
 
 
@@ -141,8 +140,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 create table diplomado(
 ID_Diplomado int PRIMARY KEY NOT NULL,
 Nombre_Diplomado varchar(30) UNIQUE NOT NULL,
-Facultad varchar(30) UNIQUE NOT NULL,
-Costo int NOT NULL
+Facultad FACU UNIQUE NOT NULL,
+Costo posint NOT NULL
 );
 
 insert into diplomado (ID_Diplomado, Nombre_Diplomado, Facultad, Costo) values(75042,'Diplomado de Posgrado en Ingeniería de Higiene Ocupacional','FIA',2000)
@@ -170,8 +169,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 create table educacion_ejecutiva(
 ID_Educacion_Ejecutiva PRIMARY KEY int NOT NULL,
 Nombre_Educacion_Ejecutiva varchar(30) UNIQUE NOT NULL,
-Facultad varchar(30) UNIQUE NOT NULL,
-Costo int NOT NULL
+Facultad FACU UNIQUE NOT NULL,
+Costo posint NOT NULL
 );
 
 insert into educacion_ejecutiva ID_Educacion_Ejecutiva, Nombre_Educacion_Ejecutiva, Facultad, Costo) values(55094,'DIRECCIÓN EN TRANSFORMACIÓN DIGITAL: PÚBLICA Y PRIVADA','FIIS',2000)
@@ -201,7 +200,7 @@ Apellido varchar(30) NOT NULL,
 Direccion varchar(100) NOT NULL,
 Email varchar(50) UNIQUE NOT NULL,
 Telefono int UNIQUE NOT NULL,
-Facultad varchar(30)
+Facultad FACU
 );
 
 
@@ -283,7 +282,7 @@ CREATE DOMAIN FACULTAD VARCHAR(50)
 
 b) Claves Primarias: 4 como mínimo
 
-ID_Postulante varchar(30) PRIMARY KEY NOT NULL,                            //Postulante
+ID_Postulante postu PRIMARY KEY NOT NULL,                                  //Postulante
 ID_Certificacion int PRIMARY KEY NOT NULL,                                 //Certificacion
 ID_Docente varchar(30) PRIMARY KEY NOT NULL,                               //Docente
 ID_Alumno varchar(30) PRIMARY KEY NOT NULL,                                //Alumno
@@ -302,7 +301,7 @@ Nombre_Doctorado varchar(30) UNIQUE NOT NULL,                               //ta
 
 d) Claves Foráneas: 4 como mínimo
 
-ID_Postulante int references postulante(ID_Postulante),                      //table admision
+ID_Postulante postu references postulante(ID_Postulante),                      //table admision
 ID_Alumno varchar(30) references Alumno(ID_Alumno),                          //table servicios
 Nombre varchar(30) references alumno(nombre),                                //table certificacion
 Apellido varchar(30) references alumno(apellido),                            //table certificacion
@@ -350,21 +349,50 @@ a) Vista que utilice una operación de conjuntos: 2 como mínimo
 
 -
 
+CREATE view vista_datos_alumnos1 AS
+SELECT alu.Nombre, alu.Apellido, alu.Dirección, alu.Email, ser.Biblioteca_Central, ser.Bolsa_Trabajo, ser.Tesis 
+FROM alumnos alu INNER JOIN servicios ser 
+ON alu.ID_Alumno = ser.ID_Alumn
+
 -
+
+CREATE view vista_alumno_posgrado2 AS
+SELECT pos.Nombre, pos.Apellido, pos.email, pos.facultad,ad.Especialidad, ad.correo, ad.costo
+ FROM postulante pos INNER JOIN admision ad 
+ON pos.ID_Postulante = ad.ID_Postulante
 
 b) Vista cuyo origen de datos sean dos tablas, una por cada tipo de JOIN incluyendo una condición WHERE: 3 como mínimo
 
 -
 
--
+CREATE view vista_alumno_posgrado2  AS
+SELECT pos.Nombre, pos.Apellido, pos.email, pos.facultad,ad.Especialidad, ad.correo, ad.costo 
+FROM postulante pos LEFT JOIN admision ad on pos.ID_Postulante = ad.ID_Postulante
+ WHERE Especialidad="Maestria"
 
 -
+
+CREATE view vista_alumno_posgrado3 AS
+SELECT alu.Nombre, alu.Apellido, alu.Dirección, alu.Email, ser.Biblioteca_Central, ser.Bolsa_Trabajo, ser.Tesis FROM alumnos alu RIGHT JOIN servicios ser on alu.ID_Alumno = ser.ID_Alumno where Biblioteca_Central="FIEE"
+
+-
+
+CREATE view vista_alumno_posgrado4 AS
+SELECT pos.Nombre, pos.Apellido, pos.email, pos.facultad,ad.Especialidad, ad.correo, ad.costo
+ FROM postulante pos INNER JOIN admision ad on pos.ID_Postulante = ad.ID_Postulante 
+WHERE Facultad="Ciencia"
 
 c) Vista cuyo origen de datos sea otra vista: 2 como mínimo
 
 -
 
+CREATE view vista_alumno5 AS
+SELECT pos.Nombre,pos.Apellido FROM vista_alumno_posgrado4 where pos.facultad=’ciencias’;
+
 -
+
+CREATE view vista_alumno6 AS
+SELECT alu.Apellido,direccion FROM vista_alumno_posgrado3 WHERE ser.tesis=’la soba del cuy’;
 
 FUNCIONES
 Deberá formular el enunciado, el programa y una captura del resultado.
