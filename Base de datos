@@ -40,26 +40,28 @@ ID_Postulante postu PRIMARY KEY NOT NULL,
 ID_Especialidad varchar(30) NOT NULL,
 Nombre varchar(30) NOT NULL,
 Apellido varchar(30) NOT NULL,
-Email varchar(50) UNIQUE NOT NULL,
+Email varchar(50) NOT NULL,
 Facultad FACU NOT NULL,
-Tipo_Postgrado varchar(30) NOT NULL
+Tipo_Postgrado varchar(30) NOT NULL,
+Ciudad varchar(30) NOT NULL,
+Cod_Ciudad int NOT NULL
 );
 
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1234','Maes123','Carlos Alberto',' Moran Baquijano','carlosalb34@yahoo.es','Ciencia','Maestria');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1235','Maes123','Juan Carlos',' Paramonga Alvitrez','juan34@yahoo.es','Ing. Quimica','Maestria');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('4234','Doct023','Carlos Juvenal',' Carrion  Zamora','juvencarlos@yahoo.com','Ing. electronica','Doctorado');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1234','Maes123','Mario Alberto',' Tinoco Moran','tinoco_alb3@gmail.com','Ciencia','Maestria');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1134','Dipl230','Jesua Luis',' Moreno Baquijano','morenobbj@yahoo.es','Ciencia','Diplomado');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1334','Maes123','Miguel Alberto',' Pariasca Ezcurra','ezcurisca1@yahoo.com','Ing. civil','Maestria');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1005','EduEj034','Raul Pedro',' Roman Zevallos','rrzzlls11@gmail.com','Educacion','Educacion Ejecutiva');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('2234','Doct023','Rigoberto Jose','Panduro Moran ','rigobertojj_we4@uni.pe','Ciencia','Doctorado');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('4234','Maes123','Miguel Carlos','Apaza Agueroo','miguelcarlosalb34@yahoo.es','Educacion','Maestria');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('4235','Maes123','Ricarso Manuel',' Orbegozo Alva','rickyme@yahoo.com','Ing. Sistemas','Maestria');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1134','Dipl230','Anselmo Jesus',' Bustamante Sotomayor','Ansejesus_4@yahoo.es','Ciencia','Diplomado');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1234','Doct023','Samuel Guillermo','Negrete Garcia','negretegg@gmail.com','Ing. Ambiental','Doctorado');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('5534','Maes123','Luis Rosulo',' Anticuya Carpio','anticucu_55@yahoo.com','Ing. Quimica','Maestria');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('4936','Dipl230','Oswaldo Celamir',' Yglesias Suarez','oswwsuazz@gmail.com','Ciencia','Diplomado');
-insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado) values('1004','Maes123','Fernando Joel',' Garcia Montenegro','garciammm_2@uni.pe','Ciencia','Maestria');
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado, Ciudad, Cod_Ciudad) values('1234M','Maes123','Carlos Alberto',' Moran Baquijano','carlosalb34@yahoo.es','Ciencia','Maestria','Lima',1);
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado, Ciudad, Cod_Ciudad) values('1235M','Maes123','Juan Carlos',' Paramonga Alvitrez','juan34@yahoo.es','Ing. Quimica','Maestria','Ancash',43);
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado, Ciudad, Cod_Ciudad) values('4234D','Doct023','Carlos Juvenal',' Carrion  Zamora','juvencarlos@yahoo.com','Ing. electronica','Doctorado','Ica',56);
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado, Ciudad, Cod_Ciudad) values('1238M','Maes123','Mario Alberto',' Tinoco Moran','tinoco_alb3@gmail.com','Ciencia','Maestria','Lima',1);
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado, Ciudad, Cod_Ciudad) values('114Di','Dipl230','Jesus Luis',' Moreno Baquijano','morenobbj@yahoo.es','Ciencia','Diplomado','Ayacucho',66);
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado, Ciudad, Cod_Ciudad) values('1334M','Maes123','Miguel Alberto',' Pariasca Ezcurra','ezcurisca1@yahoo.com','Ing. civil','Maestria','Cuzco',84);
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado, Ciudad, Cod_Ciudad) values('100EE','EduEj034','Raul Pedro',' Roman Zevallos','rrzzlls11@gmail.com','Educacion','Educacion Ejecutiva','Lima',1);
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado, Ciudad, Cod_Ciudad) values('2237D','Doct023','Rigoberto Jose','Panduro Moran ','rigobertojj_we4@uni.pe','Ciencia','Doctorado','Arequipa',54);
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado, Ciudad, Cod_Ciudad) values('4234M','Maes123','Miguel Carlos','Apaza Agueroo','miguelcarlosalb34@yahoo.es','Educacion','Maestria','Piura',73);
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado, Ciudad, Cod_Ciudad) values('4235M','Maes123','Ricarso Manuel',' Orbegozo Alva','rickyme@yahoo.com','Ing. Sistemas','Maestria','Tacna',52);
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado, Ciudad, Cod_Ciudad) values('113Di','Dipl230','Anselmo Jesus',' Bustamante Sotomayor','Ansejesus_4@yahoo.es','Ciencia','Diplomado','Lima',1);
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado, Ciudad, Cod_Ciudad) values('1239D','Doct023','Samuel Guillermo','Negrete Garcia','negretegg@gmail.com','Ing. Ambiental','Doctorado','Tumbes',72);
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado, Ciudad, Cod_Ciudad) values('5534M','Maes123','Luis Rosulo',' Anticuya Carpio','anticucu_55@yahoo.com','Ing. Quimica','Maestria','La Libertad',44);
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado, Ciudad, Cod_Ciudad) values('493Di','Dipl230','Oswaldo Celamir',' Yglesias Suarez','oswwsuazz@gmail.com','Ciencia','Diplomado','Lima',1);
+insert into postulante (ID_Postulante, ID_Especialidad, Nombre, Apellido, Email, Facultad, Tipo_Postgrado, Ciudad, Cod_Ciudad) values('1004M','Maes123','Fernando Joel',' Garcia Montenegro','garciammm_2@uni.pe','Ciencia','Maestria','Junin',64);
 
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -195,6 +197,7 @@ insert into educacion_ejecutiva ID_Educacion_Ejecutiva, Nombre_Educacion_Ejecuti
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 create table alumno(
 ID_Alumno varchar(30) PRIMARY KEY NOT NULL,
+Tipo_Postgrado varchar(30) reference                                                  
 Nombre varchar(30) NOT NULL,
 Apellido varchar(30) NOT NULL,
 Direccion varchar(100) NOT NULL,
@@ -335,15 +338,19 @@ c) Subconsultas de cada tipo (uso de operadores in, =, >=,<=, exists, all, any )
 
 - Doctorados con costo menor a 3000 soles (<) :
 
+SELECT Nombre_Doctorado FROM doctorado Where costo<3000;
 
+- Cuantos los datos de los alumnos de posgrado que esten llevando un curso en la facultad de ciencias  (=) :
 
-- Cuantos se enteraron del posgrado por la red social Facebook (=) :
+SELECT * FROM alumno WHERE facultad = 'fc';
 
-SELECT * FROM t_test WHERE id = 432332;
+- Los profesores que enseñen doctorados en la facultad de ciencais (exist) :
 
-- Cuales son los alumnos doctorados de la facultad de ciencias (exist) :
+SELECT (nombre,apellido) FROM docente WHERE EXIST( SELECT (facultad,Docente) From Docente WHERE facultad = 'fc';
 
-- 
+- Mostrar el nombre del doctorado los cuales tienen un costo mayor o igual que la media los costo (>=) : 
+
+SELECT Nombre_Doctorado FROM doctorado WHERE costo >= (SELECT AVG(costo) from doctorado);
 
 VISTAS
 Deberá formular el enunciado, la consulta y una captura del resultado:
