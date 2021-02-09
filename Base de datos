@@ -275,18 +275,22 @@ modelo del negocio.
 
 a) Definición de dominios: 4 como mínimo
 
-
+CREATE DOMAIN posint AS integer CHECK (VALUE > 0);
+CREATE DOMAIN postu AS integer CHECK (VALUE > 0 AND VALUE < 9999);
+CREATE DOMAIN espec AS integer CHECK (VALUE > 0 AND VALUE < 500);
+CREATE DOMAIN FACULTAD VARCHAR(50)
+     CHECK (VALUE IN ('fc', 'faua', 'fia', 'figmm', 'fiqt', 'fiee', 'fic', 'fieccs', 'fim', 'fip', 'fiss');
 
 b) Claves Primarias: 4 como mínimo
 
-ID_Postulante varchar(30) PRIMARY KEY NOT NULL,                            //
-//////////////////////ID_Certificacion int PRIMARY KEY NOT NULL,           //
-ID_Docente varchar(30) PRIMARY KEY NOT NULL,                               //
-ID_Alumno varchar(30) PRIMARY KEY NOT NULL,                                //
-ID_Educacion_Ejecutiva PRIMARY KEY int NOT NULL,                           //
-ID_Diplomado int PRIMARY KEY NOT NULL,                                     //
-ID_Doctorado int PRIMARY KEY NOT NULL,                                     //
-ID_Maestria int PRIMARY KEY NOT NULL,                                      //
+ID_Postulante varchar(30) PRIMARY KEY NOT NULL,                            //Postulante
+ID_Certificacion int PRIMARY KEY NOT NULL,                                 //Certificacion
+ID_Docente varchar(30) PRIMARY KEY NOT NULL,                               //Docente
+ID_Alumno varchar(30) PRIMARY KEY NOT NULL,                                //Alumno
+ID_Educacion_Ejecutiva PRIMARY KEY int NOT NULL,                           //Educacion_Ejecutiva
+ID_Diplomado int PRIMARY KEY NOT NULL,                                     //Diplomado
+ID_Doctorado int PRIMARY KEY NOT NULL,                                     //Doctorado
+ID_Maestria int PRIMARY KEY NOT NULL,                                      //Maestria
 
 c) Claves Únicas: 4 como mínimo
 
@@ -308,28 +312,37 @@ Telefono int references alumno(telefono),                                    //t
 
 CONSULTAS
 Deberá formular el enunciado, la consulta y una captura del resultado:
-a) Consulta que utilice funciones de agregación (AVG , COUNT, MIN, MAX, SUM,
-etc) 2 como mínimo
+a) Consulta que utilice funciones de agregación (AVG , COUNT, MIN, MAX, SUM,etc) 2 como mínimo
 
--
+- El costo medio de los costos de las distintas maestrias (avg) :
 
--
+SELECT AVG(Costo) FROM Maestria;
+
+- Cuantos alumnos estan estudiando en posgrado (count) :
+
+SELECT COUNT(*) FROM Alumnos;
 
 b) Consultas que usen las cláusulas WHERE, GROUP BY, HAVING, ORDER BY: 2 como mínimo
 
--
+- Los alumnos de la facultad de ciencias (where)
 
--
+SELECT (nombre, apellido) FROM Alumnos where facultad = 'fc';
+
+- La lista de los nombres de todos los profesorres de posgrado en orden ascendente (order by):
 
 c) Subconsultas de cada tipo (uso de operadores in, =, >=,<=, exists, all, any ): 4 como mínimo.
 
--
+- Doctorados con costo menor a 3000 soles (<) :
 
--
 
--
 
--
+- Cuantos se enteraron del posgrado por la red social Facebook (=) :
+
+SELECT * FROM t_test WHERE id = 432332;
+
+- Cuales son los alumnos doctorados de la facultad de ciencias (exist) :
+
+- 
 
 VISTAS
 Deberá formular el enunciado, la consulta y una captura del resultado:
@@ -339,8 +352,7 @@ a) Vista que utilice una operación de conjuntos: 2 como mínimo
 
 -
 
-b) Vista cuyo origen de datos sean dos tablas, una por cada tipo de JOIN incluyendo
-una condición WHERE: 3 como mínimo
+b) Vista cuyo origen de datos sean dos tablas, una por cada tipo de JOIN incluyendo una condición WHERE: 3 como mínimo
 
 -
 
@@ -359,7 +371,7 @@ Deberá formular el enunciado, el programa y una captura del resultado.
 Diseñe programas que realicen las siguientes operaciones sobre su base de datos:
 a) Consultas utilizando joins.
 
--
+- Cuantos se enteraron del posgrado por la red social Facebook (count) :
 
 
 b) Inserciones de tuplas en las tablas de la BD.
